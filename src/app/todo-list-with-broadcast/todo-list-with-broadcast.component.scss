@@ -1,0 +1,34 @@
+:host{
+  margin: 2vh auto;
+  padding: 1vh .5vw;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-sample {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  padding: 1vh 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding: 1vh .5vw;
+
+  input {
+    flex-grow: 1;
+  }
+
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh .5vw;;
+}

@@ -12,13 +12,13 @@ export class TodoListWithBroadcastComponent implements OnInit, OnDestroy {
   todoList = [];
 
   brodaCastChannel: BroadcastChannel;
-  readonly CHANNEL = 'todoChannel'
+  readonly CHANNEL = 'todoChannel';
   
   constructor(private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.brodaCastChannel = new BroadcastChannel(this.CHANNEL);
-    this.brodaCastChannel.onmessage = (event)=> this.handlerMessagem(event);
+    this.brodaCastChannel.onmessage = (event) => this.handlerMessagem(event);
   }
 
   ngOnDestroy(): void {
@@ -34,7 +34,7 @@ export class TodoListWithBroadcastComponent implements OnInit, OnDestroy {
 
   handlerMessagem(event: MessageEvent) {
     if (event && event.isTrusted && event.data) {
-      this.todoList = event.data
+      this.todoList = event.data;
       this.changeDetector.detectChanges();
     }
     

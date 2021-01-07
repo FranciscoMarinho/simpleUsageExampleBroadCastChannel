@@ -1,1 +1,13 @@
-<p>todo-list-with-broadcast works!</p>
+<div class="menu-sample">
+  <a href="/withoutAPI"a>Sample without Broadcast API</a>
+  <a href="/withAPI">Sample with Broadcast API</a>
+</div>
+<span>New item: </span>
+<div class="todo">
+  <input #inputValor>
+  <button (click)="addItem()" >add</button>
+</div>
+<span>To do: </span>
+<div class="list">
+  <span *ngFor="let item of todoList">{{item}}</span>
+</div>

@@ -1,0 +1,7 @@
+<span>New item: </span>
+<div class="todo">
+  <input #inputValor>
+  <button (click)="addItem()" >add</button>
+</div>
+<span>To do: </span>
+<span *ngFor="let item of todoList">{{item}}</span>

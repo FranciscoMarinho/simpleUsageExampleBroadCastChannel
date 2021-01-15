@@ -7,7 +7,7 @@ import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/co
 })
 export class TodoListComponent implements OnInit, OnDestroy {
 
-  @ViewChild('inputValor') inputValor:ElementRef;
+  @ViewChild('inputValue') inputValue:ElementRef;
 
   todoList = [];
 
@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
   }
 
   addItem() {
-    this.todoList.push(this.inputValor.nativeElement.value);
+    this.todoList.push(this.inputValue.nativeElement.value);
   }
 
 }

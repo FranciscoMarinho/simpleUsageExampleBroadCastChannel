@@ -7,29 +7,29 @@ import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild 
 })
 export class TodoListWithBroadcastComponent implements OnInit, OnDestroy {
   
-  @ViewChild('inputValor') inputValor:ElementRef;
+  @ViewChild('inputValue') inputValue:ElementRef;
 
   todoList = [];
 
-  brodaCastChannel: BroadcastChannel;
+  broadcastChannel: BroadcastChannel;
   readonly CHANNEL = 'todoChannel';
   
   constructor(private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.brodaCastChannel = new BroadcastChannel(this.CHANNEL);
-    this.brodaCastChannel.onmessage = (event) => this.handlerMessagem(event);
+    this.broadcastChannel = new BroadcastChannel(this.CHANNEL);
+    this.broadcastChannel.onmessage = (event) => this.handlerMessagem(event);
   }
 
   ngOnDestroy(): void {
-    if (this.brodaCastChannel) {
-      this.brodaCastChannel.close();
+    if (this.broadcastChannel) {
+      this.broadcastChannel.close();
     }
   }
   
   addItem() {
-    this.todoList.push(this.inputValor.nativeElement.value);
-    this.brodaCastChannel.postMessage(this.todoList);
+    this.todoList.push(this.inputValue.nativeElement.value);
+    this.broadcastChannel.postMessage(this.todoList);
   }
 
   handlerMessagem(event: MessageEvent) {
